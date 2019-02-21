@@ -29,8 +29,12 @@ public class CalcIntegrationTest {
     @Test
     public void calculate_returnsRating_forAdult() {
         //when
+        Response response = RestAssured.post("/calc/22");
 
         //then
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.jsonPath().getInt("result")).isEqualTo(44);
+        assertThat(calcRepository.findAll()).hasSize(1);
     }
 
 }
