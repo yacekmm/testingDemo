@@ -22,8 +22,8 @@ public class CalcIntegrationTest {
 
     @Before
     public void setUp() {
-        RestAssured.port = 9090;
         calcRepository.deleteAll();
+        RestAssured.port = 9090;
     }
 
     @Test
