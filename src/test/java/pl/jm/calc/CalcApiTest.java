@@ -13,15 +13,26 @@ public class CalcApiTest {
 
     private CalcApi calcApi;
     private UserApi userApi;
+    private CalcRepository calcRepository;
 
     @Before
     public void setUp() {
         userApi = mock(UserApi.class);
+        calcRepository = new CalcTestRepository();
         calcApi = new CalcApi(
-                new CalcService(new CalcValidator(), userApi)
+                new CalcService(new CalcValidator(), userApi, calcRepository)
         );
 
         given(userApi.verifyUser(anyInt())).willReturn(true);
+    }
+
+    @Test
+    public void calculate_persistsResult() {
+        //when
+        calcApi.calcRating(27);
+
+        //then
+        assertThat(calcRepository.findAll()).hasSize(1);
     }
 
     @Test
