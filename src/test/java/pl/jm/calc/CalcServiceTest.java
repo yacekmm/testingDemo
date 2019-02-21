@@ -4,13 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class CalcServiceTest {
 
-    CalcService calcService;
+    private CalcService calcService;
 
     @Before
     public void setUp() {
