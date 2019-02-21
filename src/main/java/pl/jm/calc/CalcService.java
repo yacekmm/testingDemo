@@ -8,9 +8,9 @@ class CalcService {
     private CalcValidator calcValidator;
 
     int calcRating(int age) {
-        if(calcValidator.ageIsValid(age)) {
+        if (calcValidator.ageIsValid(age)) {
             return age * 2;
-        }else {
+        } else {
             return 0;
         }
     }
