@@ -21,13 +21,6 @@ repositories {
     mavenCentral()
 }
 
-test {
-    println("in test")
-    jvmArgs('--add-opens', 'java.base/java.lang=ALL-UNNAMED')
-    jvmArgs('--add-opens', 'java.base/java.lang.invoke=ALL-UNNAMED')
-    jvmArgs('--illegal-access', 'warn')
-}
-
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"

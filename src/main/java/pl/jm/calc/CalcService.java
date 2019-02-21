@@ -1,10 +1,12 @@
 package pl.jm.calc;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.jm.user.UserApi;
 
 import java.util.UUID;
 
+@Service
 @AllArgsConstructor
 class CalcService {
 
