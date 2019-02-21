@@ -5,21 +5,21 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CalcServiceTest {
+public class CalcApiTest {
 
-    private CalcService calcService;
-    private CalcValidator calcValidator;
+    private CalcApi calcApi;
 
     @Before
     public void setUp() {
-        calcValidator = new CalcValidator();
-        calcService = new CalcService(calcValidator);
+        calcApi = new CalcApi(
+                new CalcService(new CalcValidator())
+        );
     }
 
     @Test
     public void calculate_returnsRating_forAdult() {
         //when
-        int rating = calcService.calcRating(23);
+        int rating = calcApi.calcRating(23);
 
         //then
         assertThat(rating).isEqualTo(46);
@@ -28,7 +28,7 @@ public class CalcServiceTest {
     @Test
     public void calculate_returnsRating_forNotAdult() {
         //when
-        int rating = calcService.calcRating(17);
+        int rating = calcApi.calcRating(17);
 
         //then
         assertThat(rating).isEqualTo(0);
