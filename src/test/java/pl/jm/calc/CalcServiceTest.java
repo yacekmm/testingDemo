@@ -15,7 +15,7 @@ public class CalcServiceTest {
     }
 
     @Test
-    public void calculate_returnsRating_forAdult() {
+    public void calculate_returnsRating() {
         //when
 
         //then
