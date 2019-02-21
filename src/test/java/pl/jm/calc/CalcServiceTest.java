@@ -8,12 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CalcServiceTest {
 
     private CalcService calcService;
-    private CalcValidator calcValidator;
 
     @Before
     public void setUp() {
-        calcValidator = new CalcValidator();
-        calcService = new CalcService(calcValidator);
+        calcService = new CalcService(new CalcValidator());
     }
 
     @Test
