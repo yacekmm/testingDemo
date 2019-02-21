@@ -17,8 +17,10 @@ public class CalcServiceTest {
     @Test
     public void calculate_returnsRating() {
         //when
+        int rating = calcService.calcRating(23);
 
         //then
+        assertThat(rating).isEqualTo(46);
     }
 
 }
