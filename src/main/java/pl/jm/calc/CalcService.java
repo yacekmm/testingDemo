@@ -11,6 +11,12 @@ class CalcService {
 
     int calcRating(int age) {
 
+        int result = performCalc(age);
+
+        return result;
+    }
+
+    private int performCalc(int age) {
         if (calcValidator.ageIsValid(age)
                 && userApi.verifyUser(age)) {
             return age * 2;
