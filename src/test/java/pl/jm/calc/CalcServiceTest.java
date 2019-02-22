@@ -17,7 +17,7 @@ public class CalcServiceTest {
     @Test
     public void calculate_returnsRating() {
         //when
-
+        int result = calcService.calcRating(23);
 
         //then
 
