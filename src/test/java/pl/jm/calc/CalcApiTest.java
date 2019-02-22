@@ -25,6 +25,15 @@ public class CalcApiTest {
     }
 
     @Test
+    public void calculate_persistsRating() {
+        //when
+        calcApi.calcRating(27);
+
+        //then
+
+    }
+
+    @Test
     public void calculate_returnsRating_forAdultNotAllowedByUserApi() {
         //given
         given(userApi.verifyUser(anyInt())).willReturn(false);
