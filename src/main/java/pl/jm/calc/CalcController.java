@@ -18,7 +18,7 @@ public class CalcController {
     public ResponseEntity<Map<String, Integer>> calculateRating(
             @PathVariable("age") int age) {
 
-        Map<String, Integer> result = null;
+        Map<String, Integer> result = Map.of("result", null);
         return ResponseEntity.ok(result);
     }
 }
