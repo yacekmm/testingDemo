@@ -11,12 +11,7 @@ public class CalcApi {
 
     public int calcRating(int age) {
 
-        int result = performCalc(age);
-
-        return result;
-    }
-
-    private int performCalc(int age) {
         return calcService.calcRating(age);
     }
+
 }
