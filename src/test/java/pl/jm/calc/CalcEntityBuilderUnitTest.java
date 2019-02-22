@@ -20,4 +20,13 @@ public class CalcEntityBuilderUnitTest {
         calcEntityBuilder = CalcEntityBuilder.aCalcEntity(calcRepository);
     }
 
+    @Test
+    public void calcBuilder_storesCalcInDb() {
+
+        //when
+        CalcEntity calcEntity = calcEntityBuilder.inDb();
+
+        //then
+        assertThat(calcRepository.findById(calcEntity.getId())).isNotEmpty();
+    }
 }
