@@ -11,19 +11,38 @@ import static org.mockito.Mockito.mock;
 public class CalcServiceTest {
 
     private CalcService calcService;
+    private CalcValidator calcValidator;
 
     @Before
     public void setUp() {
-        calcService = new CalcService();
+        calcValidator = mock(CalcValidator.class);
+
+        calcService = new CalcService(calcValidator);
     }
 
     @Test
-    public void calculate_returnsRating() {
+    public void calculate_returnsRating_forAdult() {
+        //given
+        given(calcValidator.ageIsValid(23)).willReturn(true);
+
         //when
         int rating = calcService.calcRating(23);
 
         //then
+        verify(calcValidator).ageIsValid(23);
         assertThat(rating).isEqualTo(46);
+    }
+
+    @Test
+    public void calculate_returnsRating_forNotAdult() {
+        //given
+        given(calcValidator.ageIsValid(3)).willReturn(false);
+
+        //when
+        int rating = calcService.calcRating(3);
+
+        //then
+        assertThat(rating).isEqualTo(0);
     }
 
 }
