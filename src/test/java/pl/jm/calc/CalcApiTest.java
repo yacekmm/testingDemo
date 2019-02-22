@@ -72,4 +72,13 @@ public class CalcApiTest {
         assertThat(rating).isEqualTo(0);
     }
 
+    @Test
+    public void calculate_persistsCalcCreationTime() {
+        //when
+        calcApi.calcRating(17);
+
+        //then
+        assertThat(calcRepository.findByCreated(TestClockConfig.TEST_TIME)).hasSize(1);
+    }
+
 }
