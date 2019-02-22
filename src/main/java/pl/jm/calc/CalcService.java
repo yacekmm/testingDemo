@@ -8,6 +8,7 @@ class CalcService {
 
     private CalcValidator calcValidator;
     private UserApi userApi;
+    private CalcRepository calcRepository;
 
     int calcRating(int age) {
 

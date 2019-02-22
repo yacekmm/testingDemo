@@ -13,12 +13,16 @@ public class CalcApiTest {
 
     private CalcApi calcApi;
     private UserApi userApi;
+    private CalcRepository calcRepository;
 
     @Before
     public void setUp() {
+
         userApi = mock(UserApi.class);
+        calcRepository = ;
+
         calcApi = new CalcApi(
-                new CalcService(new CalcValidator(), userApi)
+                new CalcService(new CalcValidator(), userApi, calcRepository)
         );
 
         given(userApi.verifyUser(anyInt())).willReturn(true);
