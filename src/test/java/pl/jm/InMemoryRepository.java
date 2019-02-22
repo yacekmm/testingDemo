@@ -16,13 +16,8 @@ public class InMemoryRepository<T, ID extends Serializable> implements CrudRepos
     @Override
     public <S extends T> S save(S entity) {
 
-        final ID id = (ID) getId(entity);
+        database.put(getId(entity), entity);
 
-        if (findById(id).isPresent()) {
-            throw new IllegalStateException("inserting duplicating entry with id: " + id);
-        }
-
-        database.put(id, entity);
         return entity;
     }
 
@@ -77,7 +72,7 @@ public class InMemoryRepository<T, ID extends Serializable> implements CrudRepos
     }
 
     @SneakyThrows
-    private static Object getId(Object t) {
-        return MethodUtils.invokeMethod(t, "getId");
+    private ID getId(Object t) {
+        return (ID) MethodUtils.invokeMethod(t, "getId");
     }
 }
