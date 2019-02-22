@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import pl.jm.TestClockConfig;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,6 +36,15 @@ public class CalcIntegrationTest {
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.jsonPath().getInt("result")).isEqualTo(44);
         assertThat(calcRepository.findAll()).hasSize(1);
+    }
+
+    @Test
+    public void calculate_persistsCalcCreationTime() {
+        //when
+        RestAssured.post("/calc/22");
+
+        //then
+        assertThat(calcRepository.findByCreated(TestClockConfig.TEST_TIME)).hasSize(1);
     }
 
 }

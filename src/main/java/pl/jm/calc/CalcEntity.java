@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -26,4 +27,7 @@ class CalcEntity {
 
     @Column(name = "result")
     private Integer result;
+
+    @Column(name = "created")
+    private Instant created;
 }

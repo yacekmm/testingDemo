@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.jm.user.UserApi;
 
+import java.time.Clock;
 import java.util.UUID;
 
 @Service
@@ -13,11 +14,12 @@ class CalcService {
     private CalcValidator calcValidator;
     private UserApi userApi;
     private CalcRepository calcRepository;
+    private Clock clock;
 
     int calcRating(int age) {
 
         int result = performCalculation(age);
-        calcRepository.save(new CalcEntity(UUID.randomUUID(), age, result));
+        calcRepository.save(new CalcEntity(UUID.randomUUID(), age, result, clock.instant()));
         return result;
     }
 

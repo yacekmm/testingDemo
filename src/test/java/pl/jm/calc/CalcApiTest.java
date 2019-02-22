@@ -1,8 +1,12 @@
 package pl.jm.calc;
 
+import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
+import pl.jm.TestClockConfig;
 import pl.jm.user.UserApi;
+
+import java.time.Clock;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -17,10 +21,13 @@ public class CalcApiTest {
 
     @Before
     public void setUp() {
+
         userApi = mock(UserApi.class);
         calcRepository = new CalcTestRepository();
+        Clock testClock = new TestClockConfig().testClock();
+
         calcApi = new CalcApi(
-                new CalcService(new CalcValidator(), userApi, calcRepository)
+                new CalcService(new CalcValidator(), userApi, calcRepository, testClock)
         );
 
         given(userApi.verifyUser(anyInt())).willReturn(true);

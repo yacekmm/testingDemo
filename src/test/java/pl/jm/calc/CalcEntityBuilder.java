@@ -1,5 +1,6 @@
 package pl.jm.calc;
 
+import java.time.Instant;
 import java.util.UUID;
 
 final class CalcEntityBuilder {
@@ -7,6 +8,7 @@ final class CalcEntityBuilder {
     private UUID id = UUID.randomUUID();
     private Integer age = 23;
     private Integer result = 46;
+    private Instant created = Instant.now();
 
     private final CalcRepository calcRepository;
 
@@ -19,7 +21,7 @@ final class CalcEntityBuilder {
     }
 
     CalcEntity build() {
-        return new CalcEntity(id, age, result);
+        return new CalcEntity(id, age, result, created);
     }
 
     CalcEntity inDb(){
@@ -40,4 +42,10 @@ final class CalcEntityBuilder {
         this.result = result;
         return this;
     }
+
+    CalcEntityBuilder withCreated(Instant created) {
+        this.created = created;
+        return this;
+    }
+
 }
