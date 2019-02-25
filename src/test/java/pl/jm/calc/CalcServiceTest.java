@@ -11,6 +11,7 @@ import static org.mockito.Mockito.mock;
 public class CalcServiceTest {
 
     private CalcService calcService;
+    private CalcValidator calcValidator;
 
     @Before
     public void setUp() {
