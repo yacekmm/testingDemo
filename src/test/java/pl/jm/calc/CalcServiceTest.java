@@ -15,16 +15,33 @@ public class CalcServiceTest {
 
     @Before
     public void setUp() {
+        calcValidator = ;
         calcService = new CalcService();
     }
 
     @Test
-    public void calculate_returnsRating() {
+    public void calculate_returnsRating_forAdult() {
+        //given
+
+
         //when
         int rating = calcService.calcRating(23);
 
         //then
         assertThat(rating).isEqualTo(46);
+    }
+
+
+    @Test
+    public void calculate_returnsRating_forNotAdult() {
+        //given
+
+
+        // when
+        int rating = calcService.calcRating(3);
+
+        //then
+        assertThat(rating).isEqualTo(0);
     }
 
 }
