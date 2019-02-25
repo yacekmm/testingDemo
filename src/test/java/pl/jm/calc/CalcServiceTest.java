@@ -16,7 +16,7 @@ public class CalcServiceTest {
     @Before
     public void setUp() {
         calcValidator = ;
-        calcService = new CalcService();
+        calcService = new CalcService(calcValidator);
     }
 
     @Test
