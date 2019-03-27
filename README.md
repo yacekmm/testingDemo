@@ -5,8 +5,10 @@ Simple, basic, yet complete example of the ide of unit and integration tests of 
 # What is it about?
 
 This is a part of live coding session of the lecture. 
+
 Slides you can find in the `Automatic tests: You won't find it in a book.pdf` file.
-Session recording will soon also be attached. 
+
+Session recording is here: https://www.youtube.com/watch?v=_7vfW3DpZvU 
 
 # How to navigate branches
  
