@@ -1,6 +1,7 @@
 package pl.jm.calc;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Table(name = "calculations")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Getter
 class CalcEntity {
 
