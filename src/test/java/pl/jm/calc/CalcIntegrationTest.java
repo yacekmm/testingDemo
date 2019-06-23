@@ -29,6 +29,7 @@ public class CalcIntegrationTest {
     @Test
     public void calculate_returnsRating_forAdult() {
         //when
+        Response response = RestAssured.post("calc/24");
 
         //then
     }
