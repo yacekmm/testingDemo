@@ -8,6 +8,4 @@ import java.util.UUID;
 @Repository
 interface CalcRepository extends CrudRepository<CalcEntity, UUID> {
 
-//    Collection<CalcEntity> findRejectedCalcs(UUID userId);
-
 }
